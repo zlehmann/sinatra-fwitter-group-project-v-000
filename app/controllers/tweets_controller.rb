@@ -36,4 +36,16 @@ class TweetsController < ApplicationController
     erb :'/tweets/show'
   end
 
+  post '/tweets/edit/:id' do
+    @tweet = Tweet.find(params[:id])
+    @tweet.content = params[:edit_content]
+    @tweet.save
+    redirect to "/tweets/#{@tweet.id}"
+  end
+
+  delete '/tweets/delete/:id' do
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
+    @tweet.save
+  end
 end
