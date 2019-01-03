@@ -50,7 +50,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @tweet.content = params[:content]
     @tweet.save
-    redirect to "/tweets/#{@tweet.id}"
+    redirect to "/tweets/#{@tweet.id}/edit"
   end
 
   delete '/tweets/delete/:id' do
