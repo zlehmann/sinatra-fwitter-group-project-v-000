@@ -61,6 +61,5 @@ class TweetsController < ApplicationController
   delete '/tweets/delete/:id' do
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
-    @tweet.save
   end
 end
