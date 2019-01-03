@@ -41,7 +41,7 @@ class TweetsController < ApplicationController
     end
   end
 
-  post '/tweets/edit/:id' do
+  post '/tweets/:id/edit' do
     @tweet = Tweet.find(params[:id])
     @tweet.content = params[:edit_content]
     @tweet.save
