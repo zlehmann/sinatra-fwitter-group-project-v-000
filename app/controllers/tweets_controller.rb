@@ -41,6 +41,10 @@ class TweetsController < ApplicationController
     end
   end
 
+  get '/tweets/:id/edit' do
+    erb :'/tweets/edit'
+  end
+
   post '/tweets/:id/edit' do
     @tweet = Tweet.find(params[:id])
     @tweet.content = params[:edit_content]
