@@ -13,9 +13,9 @@ class User < ActiveRecord::Base
   def self.find_by_slug(slug)
     if slug.include?('-')
       name = slug.gsub "-", " "
-      matching_artist = Artist.find{ |artist| artist.name.downcase == name }
+      matching_user = User.find{ |user| User.name.downcase == name }
     else
-      matching_artist = Artist.find{ |artist| artist.name.downcase == slug }
+      matching_user = User.find{ |user| User.name.downcase == slug }
     end
   end
 end
