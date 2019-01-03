@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
       redirect to '/signup'
     else
       @session = session
-      @new_user = User.create(:username => params["username"], :email => params["email"], :password_digest => params["password"])
+      @new_user = User.create(:username => params["username"], :email => params["email"], :password => params["password"])
       session[:user_id] = @new_user.id
       redirect to "/tweets"
     end
@@ -45,7 +45,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    @user = User.find_by(username: params['username'], password_digest: params['password'])
+    @user = User.find_by(username: params['username'], password: params['password'])
     if @user == nil
       redirect to '/login'
     else
