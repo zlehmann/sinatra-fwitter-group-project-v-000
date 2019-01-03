@@ -32,7 +32,7 @@ class TweetsController < ApplicationController
   end
 
   get '/tweets/:id' do
-    @user = Tweet.find(params[:id])
+    @tweet = Tweet.find(params[:id])
     erb :'/tweets/show'
   end
 
