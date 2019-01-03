@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_secure_password
   has_many :tweets
 
   def slug
@@ -13,9 +14,9 @@ class User < ActiveRecord::Base
   def self.find_by_slug(slug)
     if slug.include?('-')
       name = slug.gsub "-", " "
-      matching_artist = Artist.find{ |artist| artist.name.downcase == name }
+      matching_user = User.find{ |user| user.username.downcase == name }
     else
-      matching_artist = Artist.find{ |artist| artist.name.downcase == slug }
+      matching_user = User.find{ |user| user.username.downcase == slug }
     end
   end
 end
