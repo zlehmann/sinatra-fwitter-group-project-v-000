@@ -48,7 +48,7 @@ class TweetsController < ApplicationController
 
   post '/tweets/:id/edit' do
     @tweet = Tweet.find(params[:id])
-    @tweet.content = params[:edit_content]
+    @tweet.content = params[:content]
     @tweet.save
     redirect to "/tweets/#{@tweet.id}"
   end
